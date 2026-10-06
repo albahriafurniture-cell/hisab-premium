@@ -5,9 +5,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'data/hive_service.dart';
 import 'data/models.dart';
 import 'data/seed.dart';
+import 'desktop/adaptive_shell.dart';
 import 'screens/home_screen.dart';
 import 'screens/lock_screen.dart';
-import 'screens/main_shell.dart';
 import 'screens/onboarding_screen.dart';
 import 'screens/pin_setup_screen.dart';
 import 'theme.dart';
@@ -42,7 +42,7 @@ void main() async {
   } else if (settings.hasPin) {
     initialScreen = const LockScreen();
   } else {
-    initialScreen = const MainShell();
+    initialScreen = const AdaptiveShell();
   }
 
   runApp(HisabApp(initialScreen: initialScreen));
@@ -81,7 +81,7 @@ class _HisabAppState extends State<HisabApp> {
             '/onboarding': (_) => const OnboardingScreen(),
             '/pin_setup': (_) => const PinSetupScreen(),
             '/lock': (_) => const LockScreen(),
-            '/main': (_) => const MainShell(),
+            '/main': (_) => const AdaptiveShell(),
             '/home': (_) => const HomeScreen(),
           },
         );
